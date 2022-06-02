@@ -1,10 +1,35 @@
 import { FC } from 'react';
 import { NavLink } from 'react-router-dom';
+import classes from './Header.module.css';
 
 const Header: FC = () => (
   <header>
-    <NavLink to="/">Home</NavLink>
-    <NavLink to="/watchlist">Watchlist</NavLink>
+    <nav className={classes.Navbar}>
+      <div className="logo">LOGO</div>
+      <ul className={classes.NavList}>
+        <li>
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive ? classes.active : undefined
+            }
+          >
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/watchlist"
+            className={({ isActive }) =>
+              isActive ? classes.active : undefined
+            }
+          >
+            Watchlist
+          </NavLink>
+        </li>
+      </ul>
+    </nav>
   </header>
 );
+
 export default Header;

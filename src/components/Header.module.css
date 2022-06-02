@@ -1,0 +1,21 @@
+.Navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: rgb(4 17 29 / 25%) 0px 0px 8px 0px;
+  padding: 0 20px;
+  font-weight: bold;
+}
+.NavList {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+.NavList a {
+  text-decoration: none;
+  color: rgba(4, 17, 29, 0.75);
+}
+.NavList a.active {
+  color: #000;
+}

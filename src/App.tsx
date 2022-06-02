@@ -10,12 +10,14 @@ const App: FC = () => {
   return (
     <div className="App">
       <Header />
-      <Suspense fallback={Loading}>
-        <Routes>
-          <Route path="/" element={<AssetList />} />
-          <Route path="/watchlist" element={<WatchList />} />
-        </Routes>
-      </Suspense>
+      <main>
+        <Suspense fallback={Loading}>
+          <Routes>
+            <Route path="/" element={<AssetList />} />
+            <Route path="/watchlist" element={<WatchList />} />
+          </Routes>
+        </Suspense>
+      </main>
     </div>
   );
 };
