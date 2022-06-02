@@ -12,11 +12,15 @@
   border: 1px solid rgb(229, 232, 235);
   border-radius: 10px;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .DetailSection {
   display: flex;
   justify-content: space-between;
   padding: 20px;
+  width: 100%;
 }
 .NameArea {
   width: 60%;
@@ -41,9 +45,12 @@
   width: 100%;
   border: none;
   background-color: rgb(32, 129, 226);
-  /* border-radius: 10px; */
   color: #fff;
   padding: 12px 20px;
   cursor: pointer;
   font-weight: bold;
+  transition: 0.2s;
+}
+.ActButton:hover {
+  background-color: #1867b7;
 }

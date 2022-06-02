@@ -6,18 +6,16 @@ interface CardProps {
   address: string;
   sales: number;
   last?: string;
+  img: string;
 }
 
-const Card: FC<CardProps> = ({ name, address, sales, last }) => {
+const Card: FC<CardProps> = ({ name, address, sales, last, img }) => {
   const watchHandler = () => console.log(111);
 
   return (
     <div className={classes.CardWrapper}>
       <div className={classes.CardItem}>
-        <img
-          src="https://lh3.googleusercontent.com/eNG1VFmuf3ha5IAtZWHMaQcdViEhR2pE4pI77zAUJ2yXV3S44ltfmLRrbdxJTWttdYBJrFW_38YRyJsl7gQYk2OsqF244kET7KDaFw=w600"
-          alt="asset-img"
-        />
+        <img src={img} alt="asset-img" />
         <div className={classes.DetailSection}>
           <div className={classes.NameArea}>
             <div className={classes.Address}>{address}</div>
