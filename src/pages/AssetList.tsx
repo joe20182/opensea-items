@@ -1,7 +1,13 @@
-import { FC } from "react";
+import { FC } from 'react';
 
 const AssetList: FC = () => {
-  return <h1>AssetList</h1>;
+  const q = '123';
+  return (
+    <>
+      <h1>AssetList</h1>
+      <p>{q}</p>
+    </>
+  );
 };
 
 export default AssetList;

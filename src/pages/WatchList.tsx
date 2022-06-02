@@ -1,7 +1,5 @@
-import { FC } from "react";
+import { FC } from 'react';
 
-const WatchList: FC = () => {
-  return <h1>WatchList</h1>;
-};
+const WatchList: FC = () => <h1>WatchList</h1>;
 
 export default WatchList;
