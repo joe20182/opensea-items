@@ -1,0 +1,49 @@
+.CardWrapper {
+  width: 25%;
+  padding: 0 10px;
+  margin-bottom: 20px;
+}
+@media screen and (max-width: 600px) {
+  .CardWrapper {
+    width: 50%;
+  }
+}
+.CardItem {
+  border: 1px solid rgb(229, 232, 235);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.DetailSection {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+.NameArea {
+  width: 60%;
+}
+.PriceArea {
+  width: 40%;
+  text-align: right;
+}
+.NameArea div:first-child {
+  color: rgb(112, 122, 131);
+  margin-bottom: 6px;
+}
+.PriceArea div:first-child {
+  color: rgb(112, 122, 131);
+  margin-bottom: 6px;
+}
+.Address {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ActButton {
+  width: 100%;
+  border: none;
+  background-color: rgb(32, 129, 226);
+  /* border-radius: 10px; */
+  color: #fff;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-weight: bold;
+}

@@ -32,5 +32,6 @@ module.exports = {
       },
     ],
     'arrow-body-style': ['error', 'as-needed'],
+    'react/require-default-props': 'off',
   },
 };
