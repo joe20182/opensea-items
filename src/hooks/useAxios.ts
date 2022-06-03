@@ -13,7 +13,7 @@ interface RequestBody {
   params?: any;
 }
 
-axios.defaults.baseURL = 'https://api.opensea.io/api/v1/';
+axios.defaults.baseURL = 'https://testnets-api.opensea.io/api/v1/';
 
 const useAxios = <T>(requestConfig: RequestConfig) => {
   const [isLoading, setIsLoading] = useState(false);

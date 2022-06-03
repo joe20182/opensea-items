@@ -14,7 +14,10 @@ export const formatAssetList = (assets: AssetObject[]) =>
     id: asset.id,
     // name: `${asset.collection.name}${asset.name}`,
     name: asset.name || '-',
-    address: asset.asset_contract.address,
+    address: `${asset.asset_contract.address.substr(
+      0,
+      5,
+    )}...${asset.asset_contract.address.substr(-4)}`,
     sales: asset.num_sales,
     last_sold: asset?.last_sale?.payment_token?.usd_price,
     img: asset.image_url,
