@@ -40,7 +40,7 @@ const useAxios = <T>(requestConfig: RequestConfig) => {
         return res.data;
       }
     } catch (err) {
-      console.log('ERR', err);
+      // console.log('ERR', err);
       let message = 'Unknown Error';
       if (err instanceof Error) message = err.message;
       setError(message || 'Something went wrong!');

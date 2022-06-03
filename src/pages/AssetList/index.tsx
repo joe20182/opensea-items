@@ -62,12 +62,14 @@ const AssetList: FC = () => {
           />
         ))}
       </div>
-      <Pagination
-        count={10}
-        className={classes.PagiWrapper}
-        page={currentPage}
-        onChange={pageChangeHandler}
-      />
+      {!isLoading && (
+        <Pagination
+          count={10}
+          className={classes.PagiWrapper}
+          page={currentPage}
+          onChange={pageChangeHandler}
+        />
+      )}
       <Loading open={isLoading} />
     </>
   );
