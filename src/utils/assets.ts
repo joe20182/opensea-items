@@ -21,6 +21,7 @@ const getUsdtValue = (item: AssetObject) => {
   return undefined;
 };
 
+// 將opensea API返回格式轉為組件使用之格式
 export const formatAssetList = (assets: AssetObject[]) =>
   assets.map((asset) => ({
     id: asset.id,

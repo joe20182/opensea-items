@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import classes from './index.module.css';
 
 const Header: FC = () => (
-  <header>
+  <header className={classes.HeaderWrapper}>
     <nav className={classes.Navbar}>
       <div className="logo">LOGO</div>
       <ul className={classes.NavList}>

@@ -14,6 +14,8 @@ interface AssetAPIResponse {
   previous: string | null;
 }
 
+const PAGE_SIZE = 20;
+
 const AssetList: FC = () => {
   const { sendRequest: getAssets, isLoading } = useAxios<AssetAPIResponse>({
     url: '/assets',
@@ -30,8 +32,8 @@ const AssetList: FC = () => {
       params: {
         order_direction: 'desc',
         order_by: 'sale_count',
-        offset: (20 * (page - 1)).toString(),
-        limit: '20',
+        offset: (PAGE_SIZE * (page - 1)).toString(),
+        limit: PAGE_SIZE.toString(),
       },
     });
     setAssetList(formatAssetList(res?.assets || []));
@@ -65,7 +67,7 @@ const AssetList: FC = () => {
       </div>
       {!isLoading && (
         <Pagination
-          count={10}
+          count={50}
           className={classes.PagiWrapper}
           page={currentPage}
           onChange={pageChangeHandler}
