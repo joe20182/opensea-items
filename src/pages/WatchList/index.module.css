@@ -6,3 +6,9 @@ h1.PageTitle {
   display: flex;
   flex-wrap: wrap;
 }
+.SumWrapper {
+  padding: 0 20px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}

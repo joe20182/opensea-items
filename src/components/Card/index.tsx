@@ -7,7 +7,7 @@ interface CardProps {
   name: string;
   address: string;
   sales: number;
-  last?: string;
+  last?: number;
   img: string;
   following?: boolean;
   showLastSold?: boolean;
@@ -48,7 +48,9 @@ const Card: FC<CardProps> = ({
           </div>
           <div className={classes.PriceArea}>
             <div className="sales">sales {sales}</div>
-            {showLastSold && last && <div className="last">last {last}</div>}
+            {showLastSold && typeof last !== 'undefined' && (
+              <div className="last">last {last.toFixed(2)}</div>
+            )}
           </div>
         </div>
         <button

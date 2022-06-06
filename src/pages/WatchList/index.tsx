@@ -6,9 +6,21 @@ import AssetsContext from '../../store/assetsContext';
 const WatchList: FC = () => {
   const assetsCtx = useContext(AssetsContext);
 
+  const totalWatchedValues = () => {
+    let sum = 0;
+    assetsCtx.followingList.forEach((item) => {
+      sum += item.last_sold || 0;
+    });
+    return sum.toFixed(2);
+  };
+
   return (
     <>
       <h1 className={classes.PageTitle}>WatchList</h1>
+      <div className={classes.SumWrapper}>
+        <h4>Total watched values: </h4>
+        <span>$ {totalWatchedValues()} (USD)</span>
+      </div>
       <div className={classes.ListWrapper}>
         {assetsCtx.followingList.map((item) => (
           <Card

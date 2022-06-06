@@ -5,7 +5,7 @@ export interface AssetType {
   name: string;
   address: string;
   sales: number;
-  last_sold?: string;
+  last_sold?: number;
   img: string;
 }
 
@@ -16,9 +16,9 @@ const getUsdtValue = (item: AssetObject) => {
       +item.last_sale.total_price *
       10 ** -18 *
       +item.last_sale.payment_token.usd_price
-    ).toFixed(2);
+    );
   }
-  return '-';
+  return undefined;
 };
 
 export const formatAssetList = (assets: AssetObject[]) =>
