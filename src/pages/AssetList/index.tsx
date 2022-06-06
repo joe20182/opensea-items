@@ -45,7 +45,6 @@ const AssetList: FC = () => {
   const pageChangeHandler = (e: ChangeEvent<unknown>, value: number) => {
     fetchList(value);
   };
-  console.log('AssetList rendered');
 
   return (
     <>

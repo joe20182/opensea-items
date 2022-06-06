@@ -12,3 +12,6 @@ h1.PageTitle {
   display: flex;
   align-items: center;
 }
+.EmptyText {
+  text-align: center;
+}
