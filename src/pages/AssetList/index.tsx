@@ -1,4 +1,4 @@
-import { FC, useEffect, useState, ChangeEvent } from 'react';
+import { FC, useEffect, useState, ChangeEvent, useContext } from 'react';
 import Pagination from '@mui/material/Pagination';
 import classes from './index.module.css';
 import Card from '../../components/Card';
@@ -6,6 +6,7 @@ import useAxios from '../../hooks/useAxios';
 import { formatAssetList, AssetType } from '../../utils/assets';
 import { AssetObject } from '../../types/assets';
 import Loading from '../../components/Loading';
+import AssetsContext from '../../store/assetsContext';
 
 interface AssetAPIResponse {
   assets: AssetObject[];
@@ -19,6 +20,10 @@ const AssetList: FC = () => {
   });
   const [assetList, setAssetList] = useState<AssetType[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const assetsCtx = useContext(AssetsContext);
+
+  const isFollowing = (id: number) =>
+    !!assetsCtx.followingList.find((item) => item.id === id);
 
   const fetchList = async (page = 1) => {
     const res = await getAssets({
@@ -40,6 +45,7 @@ const AssetList: FC = () => {
   const pageChangeHandler = (e: ChangeEvent<unknown>, value: number) => {
     fetchList(value);
   };
+  console.log('AssetList rendered');
 
   return (
     <>
@@ -53,6 +59,8 @@ const AssetList: FC = () => {
             address={item.address}
             sales={item.sales}
             img={item.img}
+            following={isFollowing(item.id)}
+            last={item.last_sold}
           />
         ))}
       </div>

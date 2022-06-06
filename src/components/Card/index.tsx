@@ -10,6 +10,7 @@ interface CardProps {
   last?: string;
   img: string;
   following?: boolean;
+  showLastSold?: boolean;
 }
 
 const Card: FC<CardProps> = ({
@@ -20,6 +21,7 @@ const Card: FC<CardProps> = ({
   last,
   img,
   following,
+  showLastSold,
 }) => {
   const assetsCtx = useContext(AssetsContext);
 
@@ -46,7 +48,7 @@ const Card: FC<CardProps> = ({
           </div>
           <div className={classes.PriceArea}>
             <div className="sales">sales {sales}</div>
-            {last && <div className="last">last {last}</div>}
+            {showLastSold && last && <div className="last">last {last}</div>}
           </div>
         </div>
         <button

@@ -18,7 +18,9 @@ const WatchList: FC = () => {
             address={item.address}
             sales={item.sales}
             img={item.img}
+            last={item.last_sold}
             following
+            showLastSold
           />
         ))}
       </div>
