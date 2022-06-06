@@ -1,4 +1,5 @@
 import { createContext, FC, useState, ReactNode, useMemo } from 'react';
+import { useSnackbar } from 'notistack';
 import { AssetType } from '../utils/assets';
 
 const initValue = {
@@ -15,13 +16,20 @@ type Props = {
 
 export const AssetsContextProvider: FC<Props> = ({ children }) => {
   const [followingList, setFollowingList] = useState<AssetType[]>([]);
+  const { enqueueSnackbar } = useSnackbar();
 
   // 若已在追蹤列表則移除，反之則寫入
   const toggleFollowing = (data: AssetType) => {
     setFollowingList((preList) => {
       if (preList.find((item) => item.id === data.id)) {
+        enqueueSnackbar('Removed from watchlist', {
+          variant: 'warning',
+        });
         return preList.filter((item) => item.id !== data.id);
       }
+      enqueueSnackbar('Added to watchlist', {
+        variant: 'success',
+      });
       return [...preList, data];
     });
   };
