@@ -1,16 +1,39 @@
-import { FC } from 'react';
+import { FC, useContext } from 'react';
 import classes from './index.module.css';
+import AssetsContext from '../../store/assetsContext';
 
 interface CardProps {
+  id: number;
   name: string;
   address: string;
   sales: number;
   last?: string;
   img: string;
+  following?: boolean;
 }
 
-const Card: FC<CardProps> = ({ name, address, sales, last, img }) => {
-  const watchHandler = () => console.log(111);
+const Card: FC<CardProps> = ({
+  id,
+  name,
+  address,
+  sales,
+  last,
+  img,
+  following,
+}) => {
+  const assetsCtx = useContext(AssetsContext);
+
+  // add / remove watchlist
+  const watchHandler = () => {
+    assetsCtx.toggleFollowing({
+      id,
+      name,
+      address,
+      sales,
+      last_sold: last,
+      img,
+    });
+  };
 
   return (
     <div className={classes.CardWrapper}>
@@ -28,10 +51,10 @@ const Card: FC<CardProps> = ({ name, address, sales, last, img }) => {
         </div>
         <button
           type="button"
-          className={classes.ActButton}
+          className={following ? classes.AddedButton : classes.ActButton}
           onClick={watchHandler}
         >
-          Add to Watchlist
+          {following ? 'Remove from Watchlist' : 'Add to Watchlist'}
         </button>
       </div>
     </div>

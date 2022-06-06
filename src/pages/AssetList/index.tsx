@@ -13,11 +13,6 @@ interface AssetAPIResponse {
   previous: string | null;
 }
 
-/**
- * opensea API不是用分頁而是cursor，用此array紀錄已知每頁的cursor
- */
-const pageCursors: Array<string | null | undefined> = [null];
-
 const AssetList: FC = () => {
   const { sendRequest: getAssets, isLoading } = useAxios<AssetAPIResponse>({
     url: '/assets',
@@ -32,11 +27,9 @@ const AssetList: FC = () => {
         order_by: 'sale_count',
         offset: (20 * (page - 1)).toString(),
         limit: '20',
-        // collection_slug: 'gene-sis-the-girls-of-armament',
       },
     });
     setAssetList(formatAssetList(res?.assets || []));
-    pageCursors[currentPage] = res?.next;
     setCurrentPage(page);
   };
 
@@ -55,6 +48,7 @@ const AssetList: FC = () => {
         {assetList.map((item) => (
           <Card
             key={item.id}
+            id={item.id}
             name={item.name}
             address={item.address}
             sales={item.sales}

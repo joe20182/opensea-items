@@ -1,3 +1,8 @@
 h1.PageTitle {
   text-align: center;
 }
+.ListWrapper {
+  padding: 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+}

@@ -54,3 +54,7 @@
 .ActButton:hover {
   background-color: #1867b7;
 }
+.AddedButton {
+  composes: ActButton;
+  background-color: hsl(201, 90%, 27%);
+}

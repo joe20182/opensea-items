@@ -5,8 +5,9 @@ export interface AssetType {
   name: string;
   address: string;
   sales: number;
-  last_sold: string;
+  last_sold?: string;
   img: string;
+  isFollowing?: boolean;
 }
 
 export const formatAssetList = (assets: AssetObject[]) =>
@@ -21,4 +22,5 @@ export const formatAssetList = (assets: AssetObject[]) =>
     sales: asset.num_sales,
     last_sold: asset?.last_sale?.payment_token?.usd_price,
     img: asset.image_url,
+    isFollowing: false,
   }));
